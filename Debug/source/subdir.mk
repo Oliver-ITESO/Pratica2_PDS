@@ -4,21 +4,30 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../source/ADC_example.c \
 ../source/Convolution.c \
+../source/DAC_examples.c \
 ../source/Delay.c \
 ../source/GPIO.c \
+../source/main.c \
 ../source/semihost_hardfault.c 
 
 OBJS += \
+./source/ADC_example.o \
 ./source/Convolution.o \
+./source/DAC_examples.o \
 ./source/Delay.o \
 ./source/GPIO.o \
+./source/main.o \
 ./source/semihost_hardfault.o 
 
 C_DEPS += \
+./source/ADC_example.d \
 ./source/Convolution.d \
+./source/DAC_examples.d \
 ./source/Delay.d \
 ./source/GPIO.d \
+./source/main.d \
 ./source/semihost_hardfault.d 
 
 
