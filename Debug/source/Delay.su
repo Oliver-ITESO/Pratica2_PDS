@@ -1,1 +1,6 @@
-../source/Delay.c:10:6:delay	24	static
+../source/Delay.c:14:11:DelayCompleted	4	static
+../source/Delay.c:18:6:delay	24	static
+../source/Delay.c:28:6:configure_delay	16	static
+../source/Delay.c:39:6:DelayStatusClear	4	static
+../source/Delay.c:44:6:DelayStatus	4	static
+../source/Delay.c:49:6:DelayReset	8	static

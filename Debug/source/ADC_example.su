@@ -1,0 +1,2 @@
+../source/ADC_example.c:10:7:initADC	4	static
+../source/ADC_example.c:16:11:ADC0_read	16	static

@@ -9,6 +9,8 @@ C_SRCS += \
 ../source/DAC_examples.c \
 ../source/Delay.c \
 ../source/GPIO.c \
+../source/NVIC.c \
+../source/PIT.c \
 ../source/main.c \
 ../source/semihost_hardfault.c 
 
@@ -18,6 +20,8 @@ OBJS += \
 ./source/DAC_examples.o \
 ./source/Delay.o \
 ./source/GPIO.o \
+./source/NVIC.o \
+./source/PIT.o \
 ./source/main.o \
 ./source/semihost_hardfault.o 
 
@@ -27,6 +31,8 @@ C_DEPS += \
 ./source/DAC_examples.d \
 ./source/Delay.d \
 ./source/GPIO.d \
+./source/NVIC.d \
+./source/PIT.d \
 ./source/main.d \
 ./source/semihost_hardfault.d 
 

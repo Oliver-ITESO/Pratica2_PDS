@@ -12,6 +12,9 @@
 #include "GPIO.h"
 #include "Bits.h"
 
+static void (*gpio_C_callback)(void) = 0;
+static void (*gpio_A_callback)(void) = 0;
+
 /**This function sets the clock at selected port*/
 uint8_t GPIO_clock_gating (gpio_port_name_t port_name)
 {
@@ -269,3 +272,31 @@ void GPIO_data_direction_pin (gpio_port_name_t port_name, uint8_t state,
       break;
     }
 }
+
+void GPIO_configure_switches(void)
+{
+	gpio_pin_control_register_t input_intr_config = GPIO_MUX1|GPIO_PE|GPIO_PS|INTR_FALLING_EDGE;
+
+	GPIO_clock_gating (SW3_PORT);
+	GPIO_clock_gating (SW2_PORT);
+
+	GPIO_pin_control_register(SW3_PORT, SW3_PIN, &input_intr_config);
+	GPIO_pin_control_register(SW2_PORT, SW2_PIN, &input_intr_config);
+
+	//Configure SW3 and SW2 GPIOs as inputs
+	GPIO_data_direction_pin (SW3_PORT, GPIO_INPUT, SW3_PIN);
+	GPIO_data_direction_pin (SW2_PORT, GPIO_INPUT, SW2_PIN);
+}
+
+void GPIO_callback_init(gpio_port_name_t port_name,void (*handler)(void))
+{
+	if(GPIO_A == port_name)
+	{
+		gpio_A_callback = handler;
+	}
+	else
+	{
+		gpio_C_callback = handler;
+	}
+}
+

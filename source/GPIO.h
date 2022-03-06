@@ -15,6 +15,11 @@
 
 #include "stdint.h"
 
+#define SW3_PORT 	GPIO_A
+#define SW2_PORT 	GPIO_C
+#define SW3_PIN 	bit_4
+#define SW2_PIN 	bit_6
+
 
 /** Constant that represent the clock enable for GPIO A */
 #define GPIO_CLOCK_GATING_PORTA 0x00000200
@@ -214,5 +219,9 @@ void GPIO_clear_pin(gpio_port_name_t port_name, uint8_t pin);
  	 \return void
  */
 void GPIO_toogle_pin(gpio_port_name_t port_name, uint8_t pin);
+
+void GPIO_configure_switches(void);
+
+void GPIO_callback_init(gpio_port_name_t port_name,void (*handler)(void));
 
 #endif /* GPIO_H_ */
